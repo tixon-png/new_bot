@@ -2,7 +2,8 @@ import asyncio
 from vkbottle import *
 from config import BOT_TOKEN
 from utils.logger import logger
-from handlers import start, echo, games
+from handlers import start, echo, games, code
+
 
 async def main():
     """Основная функция запуска бота"""
@@ -15,6 +16,7 @@ async def main():
     
     # Регистрируем все обработчики
     # Порядок важен: echo должен быть последним!
+    await code.register_handlers(bot)
     await start.register_handlers(bot)
     await games.register_handlers(bot)
     await echo.register_handlers(bot)

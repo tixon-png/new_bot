@@ -33,3 +33,12 @@ async def register_handlers(bot: Bot):
     async def info_handler(message: Message):
         await message.answer(bot_text.INFO_MESSAGE)
         
+    @bot.on.message(text="Мой ID")
+    async def id_handler(message: Message):
+        
+        user_id = message.from_id
+        users = await message.ctx_api.users.get(
+        user_ids=user_id)
+        first_name = users[0].first_name
+        await message.answer(f"Привет, {first_name}! Вот твой айди - {user_id}")
+        
