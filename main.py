@@ -17,6 +17,8 @@ async def main():
     # Регистрируем все обработчики
     # Порядок важен: echo должен быть последним!
     await code.register_handlers(bot)
+    await code.register_content_handler(bot)
+    await code.register_handlers(bot)
     await start.register_handlers(bot)
     await games.register_handlers(bot)
     await echo.register_handlers(bot)
