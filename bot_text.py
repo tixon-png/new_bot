@@ -29,3 +29,21 @@ INFO_MESSAGE = (
     "Сильно не сердитесь :)"
 )
 ME_MESSAGE = "Привет, {name}!"
+THIS_IS_PHOTO = (
+    "📸 Фото!\n"
+    "Отправитель: {user_id}\n"
+    "ID фото: {photo_id}\n"
+    "Owner ID: {photo_owner_id}"
+)
+THIS_IS_DOC = (
+    "📄 Документ!\n"
+    "Отправитель: {user_id}\n"
+    "ID документа: {doc_id}\n"
+    "Owner ID: {doc_owner_id}\n"
+    "Название: {doc_title}"
+)
+THIS_IS_STICKER = (
+    "🎨 Стикер!\n"
+    "Отправитель: {user_id}\n"
+    "ID стикера: {sticker_id}"
+)
