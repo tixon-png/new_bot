@@ -13,17 +13,23 @@ from utils.logger import logger
 async def register_handlers(bot: Bot):
     @bot.on.message(AttachmentTypeRule(["photo", "doc", "sticker"]))
     async def attachment_handler(message: Message):
+        # Берём первое вложение и смотрим его тип
         attachment = message.attachments[0]
 
         att_type = attachment.type.value if hasattr(attachment.type, "value") else attachment.type
 
         if att_type == "photo":
             logger.info(f"Пользователь {message.from_id} прислал фото")
+            photo = attachment.photo
+            big = max(photo.sizes, key=lambda s: s.width * s.height)
             await message.answer(
                 bot_text.THIS_IS_PHOTO.format(
                     user_id=message.from_id,
-                    photo_id=attachment.photo.id,
-                    photo_owner_id=attachment.photo.owner_id,
+                    photo_id=photo.id,
+                    photo_owner_id=photo.owner_id,
+                    sizes_count=len(photo.sizes),
+                    max_width=big.width,
+                    max_height=big.height,
                 )
             )
         elif att_type == "doc":

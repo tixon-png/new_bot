@@ -33,7 +33,10 @@ THIS_IS_PHOTO = (
     "📸 Фото!\n"
     "Отправитель: {user_id}\n"
     "ID фото: {photo_id}\n"
-    "Owner ID: {photo_owner_id}"
+    "Owner ID: {photo_owner_id}\n"
+    "Вариантов размера: {sizes_count}\n"
+    "Максимальный размер: {max_width}×{max_height}\n"
+    "Фото сохранено в архив урока ✅"
 )
 THIS_IS_DOC = (
     "📄 Документ!\n"
